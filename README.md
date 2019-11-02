@@ -6,6 +6,10 @@ React Rating is a [react](https://github.com/facebook/react) rating component wh
 
 This React component was inspired by the jQuery plugin [bootstrap-rating](https://github.com/dreyescat/bootstrap-rating).
 
+## What's added for Miro
+
+- Ability to disable overflow hidden for symbols
+
 ## Demo
 
 See [react-rating](http://dreyescat.github.io/react-rating/) in action.
