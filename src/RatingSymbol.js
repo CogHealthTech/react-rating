@@ -27,13 +27,16 @@ class RatingSymbol extends React.PureComponent {
       direction,
       readonly,
       onClick,
-      onMouseMove
+      onMouseMove,
+      currentValue,
+      renderedValue
     } = this.props;
     const backgroundNode = _iconNode(inactiveIcon);
     const iconNode = _iconNode(activeIcon);
     const iconContainerStyle = {
       display: 'inline-block',
       position: 'absolute',
+      overflow: 'hidden',
       top: 0,
       [direction === 'rtl' ? 'right' : 'left']: 0,
       width: `${percent}%`
@@ -64,11 +67,12 @@ class RatingSymbol extends React.PureComponent {
         style={style}
         onClick={handleMouseClick}
         onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseClick}
         onTouchMove={handleMouseMove}
         onTouchEnd={handleMouseClick}
       >
         {backgroundNode}
-        <span style={iconContainerStyle}>
+        <span style={iconContainerStyle} className={currentValue === renderedValue ? 'react-rating-active' : null}>
           {iconNode}
         </span>
       </span>
@@ -95,7 +99,9 @@ RatingSymbol.propTypes = typeof __DEV__ !== 'undefined' && __DEV__ && {
   onClick: PropTypes.func,
   onMouseMove: PropTypes.func,
   onTouchMove: PropTypes.func,
-  onTouchEnd: PropTypes.func
+  onTouchEnd: PropTypes.func,
+  currentValue: PropTypes.number.isRequired,
+  renderedValue: PropTypes.number.isRequired
 };
 
 export default RatingSymbol;
