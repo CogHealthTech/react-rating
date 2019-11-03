@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Symbol from './RatingSymbol';
+import noop from './utils/noop';
 
 class Rating extends React.PureComponent {
   constructor(props) {
@@ -169,9 +170,7 @@ class Rating extends React.PureComponent {
         className={className}
         tabIndex={tabIndex}
         aria-label={this.props['aria-label']}
-        {...(!readonly && {
-          onMouseLeave: this.onMouseLeave
-        })}
+        onMouseLeave={readonly ? noop : this.onMouseLeave}
       >
         {symbolNodes}
       </span>

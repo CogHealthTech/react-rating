@@ -5,6 +5,8 @@ var TestUtils = require('react-dom/test-utils');
 var createRenderer = require('react-test-renderer/shallow').createRenderer;
 import Rating from '../src/Rating';
 var Style = require('../src/utils/style.js');
+import noop from '../src/utils/noop';
+import Symbol from '../src/RatingSymbol';
 
 var render = function (component) {
   var renderer = createRenderer();
@@ -23,7 +25,6 @@ describe('Rating', function () {
     });
 
     it('should render a 5 symbol rating', function () {
-      var Symbol = require('../src/RatingSymbol');
       var children = rating.props.children;
       var symbols = children.filter(function (child) {
         return TestUtils.isElementOfType(child, Symbol);
@@ -65,21 +66,18 @@ describe('Rating', function () {
       });
     });
     it('should not have mouse move handler', function () {
-      var noop = require('../src/utils/noop');
       rating.props.children.forEach(function (symbol, i) {
         expect(symbol.props.onMouseMove).to.equal(noop);
       });
     });
 
     it('should not have click handler', function () {
-      var noop = require('../src/utils/noop');
       rating.props.children.forEach(function (symbol, i) {
         expect(symbol.props.onClick).to.equal(noop);
       });
     });
 
     it('should not have mouse leave handler', function () {
-      var noop = require('../src/utils/noop');
       expect(rating.props.onMouseLeave).to.equal(noop);
     });
   });

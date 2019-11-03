@@ -34,7 +34,6 @@ class RatingSymbol extends React.PureComponent {
     const iconContainerStyle = {
       display: 'inline-block',
       position: 'absolute',
-      overflow: 'hidden',
       top: 0,
       [direction === 'rtl' ? 'right' : 'left']: 0,
       width: `${percent}%`

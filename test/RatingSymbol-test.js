@@ -4,6 +4,7 @@ var React = require('react');
 var TestUtils = require('react-dom/test-utils');
 var createRenderer = require('react-test-renderer/shallow').createRenderer;
 import RatingSymbol from '../src/RatingSymbol';
+import Style from '../src/utils/style';
 
 var render = function (component) {
   var renderer = createRenderer();
@@ -14,7 +15,6 @@ var render = function (component) {
 describe('RatingSymbol', function () {
   describe('with inline object icon and background', function () {
     var symbol,
-      Style = require('../src/utils/style.js'),
       icon = Style.full,
       background= Style.empty;
 
@@ -109,7 +109,7 @@ describe('RatingSymbol', function () {
     });
 
     it('should show auto cursor', function () {
-      expect(symbol.props.style.cursor).to.be.equal('auto');
+      expect(symbol.props.style.cursor).to.be.equal('inherit');
     });
   });
 
