@@ -8,7 +8,8 @@ This React component was inspired by the jQuery plugin [bootstrap-rating](https:
 
 ## What's added for Miro
 
-- Ability to disable overflow hidden for symbols
+- Support onMouseUp event for Symbols
+- Added .react-rating-active className for last active Symbol
 
 ## Demo
 
