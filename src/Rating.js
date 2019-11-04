@@ -151,7 +151,7 @@ class Rating extends React.PureComponent {
           activeIcon={
             shouldDisplayPlaceholder ? placeholder[i % full.length] : full[i % full.length]
           }
-          currentValue={i}
+          currentValue={i + 1}
           renderedValue={renderedValue}
           percent={percent}
           direction={direction}
